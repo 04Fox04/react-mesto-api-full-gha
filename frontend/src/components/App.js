@@ -120,7 +120,8 @@ function App() {
   }, [loggedIn]);
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id)
+    // const isLiked = card.likes.some((i) => i._id === currentUser._id)
+    const isLiked = card.likes.some((id) => id === currentUser._id)
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
@@ -189,13 +190,13 @@ function App() {
   }
 
   const tokenCheck = () => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("userId");
     if (token) {
       Auth
-        .tokenCheck(token)
+        .tokenCheck()
         .then((res) => {
           handleLoginTrueStatus();
-          setUserEmail(res.data.email);
+          setUserEmail(res.email);
           navigate("/");
         })
         .catch((err) => {
@@ -210,7 +211,7 @@ function App() {
   }, []);
 
   function onSignOut() {
-    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
     navigate('/sign-in')
   }
 

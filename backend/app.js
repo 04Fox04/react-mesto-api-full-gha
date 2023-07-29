@@ -20,15 +20,15 @@ const { URL } = require('./utils/constants');
 app.use(express.json());
 app.use(helmet());
 app.use(cookieParser());
-app.use(requestLogger);
-app.use(errorLogger);
-app.use(limiter);
 app.use(cors({
   origin: 'http://localhost:3001',
   methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
   credentials: true,
   maxAge: 30,
 }));
+
+app.use(limiter);
+app.use(requestLogger);
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
@@ -53,6 +53,7 @@ app.use('*', (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
 
+app.use(errorLogger);
 app.use(errors());
 app.use(handleError);
 

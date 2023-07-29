@@ -6,4 +6,6 @@ const limiter = rateLimiter({
   message: 'В настоящий момент превышено количество запросов на сервер. Пожалуйста, попробуйте повторить позже',
 });
 
-module.exports = limiter;
+module.exports = {
+  limiter,
+};

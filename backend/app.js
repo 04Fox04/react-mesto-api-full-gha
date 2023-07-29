@@ -23,7 +23,12 @@ app.use(cookieParser());
 app.use(requestLogger);
 app.use(errorLogger);
 app.use(limiter);
-app.use(cors({ origin: 'http://localhost:3001', methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'], credentials: true }));
+app.use(cors({
+  origin: 'http://localhost:3001',
+  methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
+  credentials: true,
+  maxAge: 30,
+}));
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({

@@ -21,7 +21,8 @@ app.use(express.json());
 app.use(helmet());
 app.use(cookieParser());
 app.use(cors({
-  origin: 'http://localhost:3001',
+  // origin: 'http://localhost:3001',
+  origin: 'https://frontend.domainname.nomoredomains.sbs',
   methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
   credentials: true,
   maxAge: 30,

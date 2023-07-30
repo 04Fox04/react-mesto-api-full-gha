@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { celebrate, Joi, errors } = require('celebrate');
-const cors = require('cors');
+const cors = require('./middlewares/cors');
 const handleError = require('./middlewares/errors');
 const NotFoundError = require('./errors/NotFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -23,12 +23,7 @@ app.use(cookieParser());
 
 app.use(limiter);
 app.use(requestLogger);
-app.use(cors({
-  origin: ['http://localhost:3001', 'http://backend.domainname.nomoreparties.co'],
-  methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
-  credentials: true,
-  maxAge: 30,
-}));
+app.use(cors);
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({

@@ -30,6 +30,12 @@ const corsOptions = {
   optionsSuccessStatus: 200,
   credentials: true,
 };
+// app.use(cors({
+//   origin: ['http://localhost:3000', 'http://frontend.domainname.nomoredomains.sbs', 'https://frontend.domainname.nomoredomains.sbs', 'http://backend.domainname.nomoreparties.co', 'https://backend.domainname.nomoreparties.co'],
+//   methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
+//   credentials: true,
+//   maxAge: 30,
+// }));
 
 app.use(cors(corsOptions));
 

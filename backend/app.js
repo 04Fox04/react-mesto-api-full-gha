@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 app.use(limiter);
 app.use(requestLogger);
-const allowedCors = ['https://frontend.domainname.nomoredomains.sbs/sign-in, http://localhost:3000'];
+const allowedCors = ['https://frontend.domainname.nomoredomains.sbs, http://localhost:3000'];
 
 const corsOptions = {
   origin: allowedCors,

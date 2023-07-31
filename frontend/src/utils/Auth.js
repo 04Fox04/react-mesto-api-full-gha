@@ -26,7 +26,6 @@ export const authorization = (email, password) => {
     })
     .then((res) => checkResponse(res))
     .then((data) => {
-        console.log(data);
         localStorage.setItem("userId", data._id)
         return data;
     })

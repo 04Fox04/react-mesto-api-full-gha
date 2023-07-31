@@ -1,5 +1,5 @@
-export const BASE_URL = 'https://backend.domainname.nomoreparties.co';
-// export const BASE_URL = 'http://localhost:3000';
+// export const BASE_URL = 'https://backend.domainname.nomoreparties.co';
+export const BASE_URL = 'http://localhost:3000';
 
 function checkResponse(res) {
     if (res.ok) {
@@ -26,18 +26,19 @@ export const authorization = (email, password) => {
     })
     .then((res) => checkResponse(res))
     .then((data) => {
+        console.log(data);
         localStorage.setItem("userId", data._id)
         return data;
     })
 }
 
-
-export const tokenCheck = (token) => {
-    return fetch(`${BASE_URL}/users/me`, {
-        method: 'GET',
-        credentials: 'include',
-        headers: {"Content-Type": "application/json"},
-        authorization: `Bearer ${token}`
-    })
+export const tokenCheck = (token) => { 
+    return fetch(`${BASE_URL}/users/me`, { 
+        method: 'GET', 
+        credentials: 'include', 
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }) 
     .then((res) => checkResponse(res));
 }

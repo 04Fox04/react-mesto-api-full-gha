@@ -88,8 +88,8 @@ class Api {
 
 export const api = new Api({
   // url: "https://mesto.nomoreparties.co/v1/cohort-64",
-  // url: 'http://localhost:3000',
-  url: 'https://backend.domainname.nomoreparties.co',
+  url: 'http://localhost:3000',
+  // url: 'https://backend.domainname.nomoreparties.co',
   headers: {
     authorization: '',
     "content-type": 'application/json',

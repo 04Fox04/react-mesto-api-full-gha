@@ -1,6 +1,8 @@
 const allowedCors = [
   'https://frontend.domainname.nomoredomains.sbs',
   'http://frontend.domainname.nomoredomains.sbs',
+  'https://backend.domainname.nomoreparties.co',
+  'http://backend.domainname.nomoreparties.co',
   'https://localhost:3000',
   'http://localhost:3001',
 ];

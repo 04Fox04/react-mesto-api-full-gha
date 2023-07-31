@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { celebrate, Joi, errors } = require('celebrate');
-const cors = require('./middlewares/cors');
+const cors = require('cors');
 const handleError = require('./middlewares/errors');
 const NotFoundError = require('./errors/NotFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -23,7 +23,15 @@ app.use(cookieParser());
 
 app.use(limiter);
 app.use(requestLogger);
-app.use(cors);
+const allowedCors = ['https://frontend.domainname.nomoredomains.sbs/sign-in, http://localhost:3000'];
+
+const corsOptions = {
+  origin: allowedCors,
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({

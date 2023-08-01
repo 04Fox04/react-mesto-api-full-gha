@@ -11,7 +11,9 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, renderLoading }) {
       name: cardNameRef.current.value,
       link: cardLinkRef.current.value
     })
+    event.target.reset();
   }
+  
 
   return (
     <PopupWithForm

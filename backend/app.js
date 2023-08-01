@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 app.use(limiter);
 app.use(requestLogger);
-const allowedCors = ['https://frontend.domainname.nomoredomains.sbs', 'http://localhost:3000'];
+const allowedCors = ['https://kso.domainname.nomoreparties.co', 'http://localhost:3000'];
 
 const corsOptions = {
   origin: allowedCors,
@@ -31,13 +31,6 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-
-// app.use(cors({
-//   origin: ['http://localhost:3001', 'http://frontend.domainname.nomoredomains.sbs', 'https://frontend.domainname.nomoredomains.sbs', 'http://backend.domainname.nomoreparties.co', 'https://backend.domainname.nomoreparties.co'],
-//   methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
-//   credentials: true,
-//   maxAge: 30,
-// }));
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({

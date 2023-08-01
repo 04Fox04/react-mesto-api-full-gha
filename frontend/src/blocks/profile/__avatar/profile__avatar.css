@@ -2,9 +2,5 @@
     max-width: 120px;
     height: 120px;
     object-fit: cover;
+    border-radius: 50%;
 }
-/* @media screen and (max-width: 767px){
-    .profile__avatar{
-        align-self: center;
-    }
-} */

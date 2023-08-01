@@ -62,8 +62,7 @@ const login = (req, res, next) => {
               httpOnly: true,
               sameSite: true,
               secure: true,
-            });
-            res.send({ data: user.toJSON() });
+            }).send({ data: user.toJSON() });
           } else {
             throw new AuthError('Введены неправильные данные для входа');
           }

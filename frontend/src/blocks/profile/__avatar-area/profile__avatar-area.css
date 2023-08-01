@@ -1,9 +1,5 @@
 .profile__avatar-area {
-    margin: 0 auto;
-    height: 120px;
-    width: 120px;
-    border-radius: 50%;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center;
-    overflow: hidden;
 }
